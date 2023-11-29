@@ -25,6 +25,10 @@ The future of the automotive industry demands Sofware Defined Vehicle (SDV), req
 
 ### Shared Vehicle Management System
 
+<div align="center">
+    <img src="https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/73748884/f97aa38a-16dd-457a-85af-b1ae7b787b54" width="500" height="300">
+</div>
+
 - Overview
     
     The shared vehicle management system utilizes digital twin technology to monitor and manage aspects such as the vehicle's battery life, consumable status, and accident occurrences in real-time. New vehicles, when introduced, are efficiently managed centrally through cloud connection, enabling cost reduction in maintenance and quicker response to accidents.
@@ -32,11 +36,17 @@ The future of the automotive industry demands Sofware Defined Vehicle (SDV), req
 - Features
     1. Monitors and manages shared vehicles in real-time, including battery life, consumable status, and accident occurrences, using digital twin technology.
     2. When new vehicles are introduced, they automatically connect to the cloud and are managed centrally.
-    3. Allows for real-time assessment of vehicle condition, reducing maintenance costs.
-    4. Shortens response time to car accidents.
-    5. Shared vehicle companies can transparently provide the vehicle's condition to customers.
+    3. Without hardware change, can connect to personal device via eCAL, SOME/IP, CAN
+    4. Allows for real-time assessment of vehicle condition, reducing maintenance costs.
+    5. Shortens response time to car accidents.
+    6. Shared vehicle companies can transparently provide the vehicle's condition to customers.
+    7. There is No need for companies to provide hardware for HUD.
 
 ### User-Customized HUD Application
+
+<div align="center">
+    <img src="https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/73748884/8120ae4d-de6c-4050-9479-c70093c0a745" width="500" height="300">
+</div>
 
 - Overview
     
@@ -48,10 +58,9 @@ The future of the automotive industry demands Sofware Defined Vehicle (SDV), req
     3. Offers vehicle operation and custom HUD through smartphones, including seat adjustments, air conditioning settings, and audio profiles, from anywhere.
     4. When users log into the vehicle application with their accounts, personalized settings stored in their accounts are applied to the vehicle, allowing customization across different types of shared vehicles.
     5. Supports customization of the dashboard through the Head Up Display, encouraging users to choose the same shared vehicle provider to maintain familiar dashboard settings and configurations.
-    6. There is No need for companies to provide hardware for HUD.
-    7. Updates for the app and firmware are possible through Leda's OTA (Over-The-Air).
+    6. Updates for the app and firmware are possible through Leda's OTA (Over-The-Air).
 
-## Project Development Potential
+## Potential Improvement
 
 1. Beyond HUD, the possibility of providing customized Head Units and Instrument Clusters.
 2. Emphasizing scalability for integration with future vehicle technologies.
