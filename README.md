@@ -1,14 +1,5 @@
 # Shared Vehicle Manager with IOT
 
-# Table of Contents
-1. [Project Overview](#project-overview)
-2. [Current Market Situation of Shared Vehicle Management](#current-market-situation-of-shared-vehicle-management)
-3. [Project Description](#project-description)
-    - [Project Architecture](#project-architecture)
-    - [Shared Vehicle Management System](#shared-vehicle-management-system)
-    - [User-Customized HUD Application](#user-customized-hud-application)
-4. [Potential Improvement](#potential-improvement)
-
 ## Team “Millennium”
 
 Team Leader: Minchan Jung
@@ -18,6 +9,15 @@ Team Members: Dahyun Ko, Hokyung Park, Junho Kim, Sujong Ha
 <a href="https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement" />
 </a>
+
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Current Market Situation of Shared Vehicle Management](#current-market-situation-of-shared-vehicle-management)
+3. [Project Description](#project-description)
+    - [Project Architecture](#project-architecture)
+    - [Shared Vehicle Management System](#shared-vehicle-management-system)
+    - [User-Customized HUD Application](#user-customized-hud-application)
+4. [Potential Improvement](#potential-improvement)
 
 ## Project Overview
 
