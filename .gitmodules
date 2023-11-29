@@ -1,0 +1,6 @@
+[submodule "Personalizing_Application"]
+	path = Personalizing_Application
+	url = https://github.com/junho2000/eclipse-velocitas
+[submodule "Personalzed_HUD"]
+	path = Personalzed_HUD
+	url = https://github.com/junho2000/eclipse-hu.git
