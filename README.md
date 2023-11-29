@@ -4,7 +4,7 @@
 
 Team Leader: Minchan Jung
 
-Team Members: Dahyun Koo, Hokyung Park, Junho Kim, Sujong Ha
+Team Members: Dahyun Ko, Hokyung Park, Junho Kim, Sujong Ha
 
 ## Project Overview
 
