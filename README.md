@@ -6,20 +6,30 @@ Team Leader: Minchan Jung
 
 Team Members: Dahyun Ko, Hokyung Park, Junho Kim, Sujong Ha
 
+<a href="https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement" />
+</a>
+
 ## Project Overview
 
 This project aims to provide a customized management solution for the shared vehicle industry, enhancing the experience for both vehicle providers and users. To achieve this, we developed a shared vehicle management system utilizing the latest digital twin technology, along with a user-customized application.
 
 ## Current Market Situation of Shared Vehicle Management
 
+<div align="center">
+    <img src="https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/73748884/e70e1a66-3b8e-450c-ad53-7a9f024bf339" width="500" height="300">
+</div>
+
 The future of the automotive industry demands Sofware Defined Vehicle (SDV), requiring changes in the shared vehicle market. With the growing shared vehicle market, there is an urgent need to improve vehicle management and user experience. The diverse needs of customers are increasing, and providing efficient vehicle management and enhanced user experiences has become a key factor in market competition.
 
 ## Project Description
 
-## Ideal Structure
+### Project Architecture
+
+#### Ideal Structure
 ![ideal](https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/138571365/c46a4a88-5ef1-44f0-b1ed-bb11705a35d5)
 
-## For Hackathon
+#### For Hackathon
 ![hack](https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/138571365/b457784f-d16c-4fc0-9664-339c3b83e59c)
 
 ### Shared Vehicle Management System
@@ -34,12 +44,11 @@ The future of the automotive industry demands Sofware Defined Vehicle (SDV), req
     
 - Features
     1. Monitors and manages shared vehicles in real-time, including battery life, consumable status, and accident occurrences, using digital twin technology.
-    2. When new vehicles are introduced, they automatically connect to the cloud and are managed centrally.
-    3. Without hardware change, can connect to personal device via eCAL, SOME/IP, CAN
+    2. When new vehicles are connected our ECU(with custom Leda image), they automatically connect to fleet management system.
+    3. Without hardware change, can connect to ECU via eCAL, SOME/IP, CAN
     4. Allows for real-time assessment of vehicle condition, reducing maintenance costs.
     5. Shortens response time to car accidents.
     6. Shared vehicle companies can transparently provide the vehicle's condition to customers.
-    7. There is No need for companies to provide hardware for HUD.
 
 ### User-Customized HUD Application
 
@@ -55,9 +64,10 @@ The future of the automotive industry demands Sofware Defined Vehicle (SDV), req
     1. Provides customized HUDs as desired by customers.
     2. Users enjoy a consistent, personalized experience with any shared vehicle, without the need for adaptation to new vehicles, contributing to increased customer loyalty and satisfaction.
     3. Offers vehicle operation and custom HUD through smartphones, including seat adjustments, air conditioning settings, and audio profiles, from anywhere.
-    4. When users log into the vehicle application with their accounts, personalized settings stored in their accounts are applied to the vehicle, allowing customization across different types of shared vehicles.
+    4. When users login to the vehicle application with their accounts, personalized settings stored in their accounts are applied to the vehicle, allowing customization across different types of shared vehicles.
     5. Supports customization of the dashboard through the Head Up Display, encouraging users to choose the same shared vehicle provider to maintain familiar dashboard settings and configurations.
     6. Updates for the app and firmware are possible through Leda's OTA (Over-The-Air).
+    7. There is No need for companies to provide hardware for HUD.
 
 ## Potential Improvement
 
