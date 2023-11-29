@@ -6,3 +6,8 @@
 
 ## For Hackathon
 ![ForHackathon](https://github.com/eclipse-sdv-blueprints/fleet-management/assets/120576021/a61234f9-720e-4e07-b4cf-958145295ce9)
+
+
+
+- Change MonitorIP in forwarder-setting.env
+- Send influxdb.token to /etc/forwarder/influxdb.token

@@ -1,0 +1,94 @@
+# SPDX-FileCopyrightText: 2023 Contributors to the Eclipse Foundation
+#
+# See the NOTICE file(s) distributed with this work for additional
+# information regarding copyright ownership.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+
+networks:
+  fms-backend:
+    driver: overlay
+    attachable: true
+  fms-vehicle:
+    driver: overlay
+    attachable: true
+
+configs:
+  vss_overlay.json:
+    file: "./spec/overlay/vss.json"
+  influxdb.token:
+    file: "/etc/forwarder/influxdb.token"
+
+volumes:
+  influxdb-data:
+  influxdb-config:
+  influxdb-auth:
+  grafana-datasources:
+
+services:
+  databroker:
+    image: "ghcr.io/eclipse/kuksa.val/databroker:0.4.1"
+    container_name: "databroker"
+    networks:
+    - "fms-vehicle"
+    ports:
+    - "127.0.0.1:55555:55556"
+    configs:
+    - "vss_overlay.json"
+    environment:
+      KUKSA_DATA_BROKER_ADDR: "0.0.0.0"
+      KUKSA_DATA_BROKER_PORT: "55556"
+      KUKSA_DATA_BROKER_METADATA_FILE: "/vss_overlay.json"
+      RUST_LOG: "info"
+    # for the time being, we do not use TLS secured connections to Databroker
+    command: "--insecure"
+  fms-forwarder:
+    image: "ghcr.io/eclipse-sdv-blueprints/fleet-management/fms-forwarder:main"
+    build: &fms-forwarder-build
+      context: "./components"
+      dockerfile: "Dockerfile.fms-forwarder"
+    container_name: "fms-forwarder"
+    networks:
+    - "fms-backend"
+    - "fms-vehicle"
+    depends_on:
+      databroker:
+        condition: service_started
+    command: "influx"
+    env_file: "${FMS_FORWARDER_PROPERTIES_FILE:-./forwarder-setting.env}"
+    environment:
+      INFLUXDB_TOKEN_FILE: "/etc/forwarder/influxdb.token"
+      KUKSA_DATA_BROKER_URI: "http://databroker:55556"
+      RUST_LOG: "${FMS_FORWARDER_LOG_CONFIG:-info,fms_forwarder=info,influx_client=info}"
+      TRUST_STORE_PATH: "${FMS_FORWARDER_TRUST_STORE_PATH:-/etc/ssl/certs/ca-certificates.crt}"
+    configs:
+    - source: "influxdb.token"
+      target: "/etc/forwarder/influxdb.token"
+  csv-provider:
+    image: "ghcr.io/eclipse/kuksa.val.feeders/csv-provider:main"
+    container_name: "csv-provider"
+    networks:
+    - "fms-vehicle"
+    depends_on:
+      databroker:
+        condition: service_started
+    volumes:
+    - "./csv-provider/signalsFmsRecording.csv:/dist/signals.csv"
+    environment:
+      PROVIDER_INFINITE: 1
+      PROVIDER_LOG_LEVEL: "INFO"
+      KUKSA_DATA_BROKER_ADDR: "databroker"
+      KUKSA_DATA_BROKER_PORT: "55556"
+
