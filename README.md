@@ -17,7 +17,7 @@ The future of the automotive industry demands Sofware Defined Vehicle (SDV), req
 ## Project Description
 
 ## Ideal Structure
-![ideal](https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/138571365/da2d5e22-1a0e-40ce-857b-6c35f6c2476b)
+![ideal](https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/assets/138571365/669008be-34ca-47f2-99c3-00b96c9e3324)
 
 ## For Hackathon
 ![ForHackathon](https://github.com/eclipse-sdv-blueprints/fleet-management/assets/120576021/a61234f9-720e-4e07-b4cf-958145295ce9)
