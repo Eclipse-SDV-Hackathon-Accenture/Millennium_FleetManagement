@@ -1,0 +1,53 @@
+{
+    "container_id": "personalized_HUD",
+    "container_name": "personalized_HUD",
+    "image": {
+        "name": "ghcr.io/junho2000/eclipse-velocitas/sampleapp:1.0.4"
+    },
+    "host_config": {
+        "devices": [],
+        "network_mode": "bridge",
+        "privileged": false,
+        "restart_policy": {
+            "maximum_retry_count": 0,
+            "retry_timeout": 0,
+            "type": "unless-stopped"
+        },
+        "runtime": "io.containerd.runc.v2",
+        "extra_hosts": [        
+                "mosquitto:host_ip",
+                "databroker:container_databroker-host",
+        ],
+        "port_mappings": [
+            {
+              "protocol": "tcp",
+              "container_port": 30151,
+              "host_ip": "localhost",
+              "host_port": 50151,
+              "host_port_end": 50151
+            }
+        ],
+        "log_config": {
+            "driver_config": {
+                "type": "json-file",
+                "max_files": 2,
+                "max_size": "1M",
+                "root_dir": ""
+            },
+            "mode_config": {
+                "mode": "blocking",
+                "max_buffer_size": ""
+            }
+        },
+        "resources": null
+    },
+    "config": {
+        "env": [
+           "SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555",
+           "SDV_MQTT_ADDRESS=mqtt://mosquitto:1883",
+           "SDV_MIDDLEWARE_TYPE=native"
+        ],
+        "cmd": []
+    }
+}
+
