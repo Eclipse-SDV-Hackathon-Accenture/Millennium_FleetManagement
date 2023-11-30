@@ -35,12 +35,12 @@ while ecal_core.ok():
     protobuf_message.data = throttle
     pub.send(protobuf_message)
     
-    steering = int(steering * 20.0)
+    steering = steering * 20.0
     protobuf_message = vss_data_pb2.VssData()
     protobuf_message.vss_code = "Vehicle.Chassis.SteeringWheel.Angle"
     protobuf_message.data = steering
     pub.send(protobuf_message)
 
-    print("speed : {:.2f} steering : {}".format(throttle, steering))
+    print("speed : {:.2f} steering : {:.2f}".format(throttle, steering))
 
 ecal_core.finalize()
