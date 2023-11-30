@@ -1,0 +1,23 @@
+--- a/samples/CMakeLists.txt	2023-11-29 12:21:43.924203000 +0100
++++ b/samples/CMakeLists.txt	2023-11-29 12:26:16.873870963 +0100
+@@ -112,9 +112,6 @@
+ 
+ # services
+ add_subdirectory(cpp/services/ecalplayer_client)
+-if(HAS_QT5)
+-  add_subdirectory(cpp/services/ecalplayer_gui_client)
+-endif(HAS_QT5)
+ add_subdirectory(cpp/services/ecalsys_client)
+ add_subdirectory(cpp/services/latency_client)
+ add_subdirectory(cpp/services/latency_server)
+@@ -127,10 +124,6 @@
+ add_subdirectory(cpp/services/ping_server)
+ add_subdirectory(cpp/services/player_stepper)
+ add_subdirectory(cpp/services/rec_client_service_cli)
+-if(HAS_QT5)
+-  add_subdirectory(cpp/services/rec_client_service_gui)
+-  add_subdirectory(cpp/services/rec_server_service_gui)
+-endif(HAS_QT5)
+ 
+ # --------------------------------------------------------
+ # python samples

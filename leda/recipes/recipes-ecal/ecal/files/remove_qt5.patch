@@ -1,0 +1,86 @@
+--- a/CMakeLists.txt	2023-11-29 12:21:43.536201000 +0100
++++ b/CMakeLists.txt	2023-11-29 12:25:03.329403633 +0100
+@@ -165,18 +165,6 @@
+   endif()
+ endif()
+ 
+-# --------------------------------------------------------
+-# detect qt library
+-# --------------------------------------------------------
+-if(MSVC)
+-  if (HAS_QT5)
+-    find_package(Qt5 COMPONENTS Core QUIET)
+-    if (NOT "${Qt5_FOUND}")
+-      autodetect_qt5_msvc_dir()
+-    endif()
+-  endif()
+-endif()
+-
+ # This is a list of subprojects, that might be build with eCAL
+ # according to how options ECAL_BUILD_<SUBPROJECT> are set
+ set(possible_subprojects
+@@ -332,21 +320,7 @@
+ add_subdirectory(lib/ThreadingUtils)
+ add_subdirectory(lib/CustomTclap)
+ add_subdirectory(lib/ecal_utils)
+-
+-if(HAS_QT5)
+-  add_subdirectory(lib/CustomQt)
+-endif()
+ add_subdirectory(lib/EcalParser)
+-if(HAS_QT5)
+-  add_subdirectory(lib/QEcalParser)
+-endif(HAS_QT5)
+-
+-# --------------------------------------------------------
+-# ecal mon plugin sdk
+-# --------------------------------------------------------
+-if(HAS_QT5)
+-  add_subdirectory(app/mon/mon_plugin_lib)
+-endif(HAS_QT5)
+ 
+ # --------------------------------------------------------
+ # ecal rec addon sdk
+@@ -423,28 +397,6 @@
+ endif()
+ 
+ # --------------------------------------------------------
+-# qt applications
+-# --------------------------------------------------------
+-if(BUILD_APPS AND HAS_QT5)
+-  add_subdirectory(app/sys/sys_gui)
+-  add_subdirectory(app/mon/mon_gui)
+-  if(WIN32)
+-    set(ECAL_MON_PLUGIN_DIR ecalmon_plugins)
+-  else()
+-    set(ECAL_MON_PLUGIN_DIR ecal/plugins/mon)
+-  endif()
+-  add_subdirectory(app/mon/mon_plugins)
+-  add_subdirectory(app/util/launcher)
+-# --------------------------------------------------------
+-# qt applications using hdf5
+-# --------------------------------------------------------
+-if(BUILD_APPS AND HAS_QT5 AND HAS_HDF5)
+-  add_subdirectory(app/play/play_gui)
+-  add_subdirectory(app/rec/rec_gui)
+-endif()
+-endif()
+-
+-# --------------------------------------------------------
+ # samples
+ # --------------------------------------------------------
+ if(BUILD_SAMPLES)
+@@ -479,13 +431,6 @@
+   add_subdirectory(testing/ecal/pubsub_test)
+   add_subdirectory(testing/ecal/topic2mcast_test)
+   add_subdirectory(testing/ecal/util_test)
+-  
+-  # ------------------------------------------------------
+-  # test apps
+-  # ------------------------------------------------------
+-  if (HAS_HDF5 AND HAS_QT5)
+-    add_subdirectory(app/rec/rec_tests/rec_rpc_tests)
+-  endif()
+ endif()
+ 
+ # --------------------------------------------------------
