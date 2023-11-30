@@ -6,10 +6,6 @@ Team Leader: Minchan Jung
 
 Team Members: Dahyun Ko, Hokyung Park, Junho Kim, Sujong Ha
 
-<a href="https://github.com/Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Eclipse-SDV-Hackathon-Accenture/Millennium_FleetManagement" />
-</a>
-
 ## Table of Contents
 1. [Project Overview](#project-overview)
 2. [Current Market Situation of Shared Vehicle Management](#current-market-situation-of-shared-vehicle-management)
