@@ -95,3 +95,6 @@ docker exec -it influxDB cat /tmp/out/fms-demo.token > /tmp/influxdb.token
 
 # The FMS Forwarder needs to read the token required for authenticating to influxdb.
 scp -P 2222 /tmp/influxdb.token root@127.0.0.1:/data/usr/fms/forwarder
+
+# Run leda images built by yocto
+qemu-system-x86_64 -net nic -net user,hostfwd=tcp::2222-:22,hostfwd=tcp::1880-:1880,hostfwd=tcp::1884-:1883,hostfwd=tcp::8888-:8888,hostfwd=tcp::30555-:30555 -device virtio-blk,drive=hd,bootindex=1 -drive if=none,id=hd,file=sdv-image-all-qemux86-64.wic.qcow2,format=qcow2 -usb -device usb-tablet -serial mon:stdio -object can-bus,id=canbus0 -device kvaser_pci,canbus=canbus0 -bios ovmf.qcow2 -cpu IvyBridge -machine q35 -smp 4 -m 4G
