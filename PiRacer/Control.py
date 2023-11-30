@@ -29,17 +29,18 @@ while ecal_core.ok():
     piracer.set_throttle_percent(throttle)
     piracer.set_steering_percent(steering)
 
+    throttle = throttle * 100.0
     protobuf_message = vss_data_pb2.VssData()
     protobuf_message.vss_code = "Vehicle.Speed"
-    protobuf_message.data = int(throttle)
+    protobuf_message.data = throttle
     pub.send(protobuf_message)
     
+    steering = int(steering * 20.0)
     protobuf_message = vss_data_pb2.VssData()
     protobuf_message.vss_code = "Vehicle.Chassis.SteeringWheel.Angle"
-    protobuf_message.data = int(steering)
+    protobuf_message.data = steering
     pub.send(protobuf_message)
 
-    print("speed & steering")
+    print("speed : {:.2f} steering : {}".format(throttle, steering))
 
 ecal_core.finalize()
-

@@ -16,18 +16,18 @@ pub = ProtoPublisher("vss_data_python_protobuf_topic_1", vss_data_pb2.VssData)
 
 while ecal_core.ok():
     voltage = piracer.get_battery_voltage()
-    battery = int((voltage - 2.8 * 3.0) / (12.3 - 2.8 * 3.0) * 100.0)
+    battery = (voltage - 2.8 * 3.0) / (12.3 - 2.8 * 3.0) * 100.0
 
     if battery > 100:
-        battery = 100
+        battery = 100.0
     elif battery < 0:
-        battery = 0
+        battery = 0.0
 
     protobuf_message = vss_data_pb2.VssData()
     protobuf_message.vss_code = "Vehicle.Powertrain.TractionBattery.StateOfCharge.Current"
     protobuf_message.data = battery
 
-    print("battery")
+    print("battery : {:.2f}".format(battery))
 
     pub.send(protobuf_message)
       

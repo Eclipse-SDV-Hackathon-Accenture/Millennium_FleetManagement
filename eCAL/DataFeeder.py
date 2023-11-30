@@ -14,10 +14,10 @@ from kuksa_client.grpc import Datapoint
 
 ecal_core.initialize(sys.argv, "Python Protobuf")
 
-sub = ProtoSubscriber("vss_data_python_protobuf_topic_2", vss_data_pb2.VssData)
+sub = ProtoSubscriber("vss_data_python_protobuf_topic_1", vss_data_pb2.VssData)
 
 def callback(topic_name, vss_data_proto_msg, time):
-  with VSSClient('127.0.0.1', 55555) as client:
+  with VSSClient('127.0.0.1', 30555) as client:
     client.set_current_values({
     vss_data_proto_msg.vss_code: Datapoint(vss_data_proto_msg.data),
     })
