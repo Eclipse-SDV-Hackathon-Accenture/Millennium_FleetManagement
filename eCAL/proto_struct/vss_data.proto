@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package proto_struct;
+
+message VssData
+{
+  string vss_code = 1;
+  uint32 data     = 2;
+}
